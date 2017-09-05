@@ -1,3 +1,15 @@
+.gitignore
+
+*/target/*
+
+*/.settings/*
+**/.classpath
+**/.project
+
+*/.idea/*
+*.iml
+*.ipr
+
 # Compiled class file
 *.class
 
