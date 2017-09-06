@@ -1,0 +1,39 @@
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
+             version="2.0">
+
+    <persistence-unit name="GEOGAMES">
+        <!-- Specify JPA Provider - implementation of JPA -->
+        <!-- In our case - this is Hibernate -->
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <!-- Define mapping entities -->
+        <class>fan.geogames.entity.Comment</class>
+        <class>fan.geogames.entity.CommentsLike</class>
+        <class>fan.geogames.entity.CommentsLikePK</class>
+        <class>fan.geogames.entity.Event</class>
+        <class>fan.geogames.entity.EventLike</class>
+        <class>fan.geogames.entity.EventLikePK</class>
+        <class>fan.geogames.entity.Users</class>
+        <class>fan.geogames.entity.VisitedEvent</class>
+        <class>fan.geogames.servise.UserDAO</class>
+
+        <properties>
+            <!-- JPA Properties -->
+            <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+            <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/geogames" />
+            <property name="javax.persistence.jdbc.user" value="root" />
+            <property name="javax.persistence.jdbc.password" value="" />
+
+            <!-- Hibernate properties -->
+            <property name="hibernate.connection.pool_size" value="5" />
+            <property name="hibernate.show_sql" value="true" />
+            <property name="hibernate.format_sql" value="true" />
+            <property name="hibernate.dialect" value="org.hibernate.dialect.MySQLDialect" />
+            <property name="hibernate.hbm2ddl.auto" value="update"/>
+        </properties>
+
+    </persistence-unit>
+
+</persistence>

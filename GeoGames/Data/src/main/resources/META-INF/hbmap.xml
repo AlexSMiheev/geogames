@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+
+
+<hibernate-mapping>
+    <class name="fan.geogames.entity.Comment" table="comment" schema="geogames">
+        <id name="commentId" column="comment_Id"/>
+        <property name="text" column="text"/>
+    </class>
+    <class name="fan.geogames.entity.CommentsLike" table="comments_like" schema="geogames">
+        <composite-id mapped="true" class="fan.geogames.entity.CommentsLikePK">
+            <key-property name="userId" column="user_Id"/>
+            <key-property name="commentId" column="comment_Id"/>
+        </composite-id>
+        <property name="likeDontLike" column="like_dont_like"/>
+    </class>
+    <class name="fan.geogames.entity.Event" table="event" schema="geogames">
+        <id name="eventId" column="event_Id"/>
+        <property name="eventName" column="event_name"/>
+        <property name="latitude" column="latitude"/>
+        <property name="longitude" column="longitude"/>
+        <property name="description" column="description"/>
+    </class>
+    <class name="fan.geogames.entity.EventLike" table="event_like" schema="geogames">
+        <composite-id mapped="true" class="fan.geogames.entity.EventLikePK">
+            <key-property name="userId" column="user_id"/>
+            <key-property name="eventId" column="event_id"/>
+        </composite-id>
+        <property name="likeNotLike" column="like_not_like"/>
+    </class>
+    <class name="fan.geogames.entity.Users" table="users" schema="geogames">
+        <id name="userId" column="user_Id"/>
+        <property name="login" column="login"/>
+        <property name="password" column="password"/>
+        <property name="userName" column="user_name"/>
+        <property name="userSurname" column="user_surname"/>
+        <property name="email" column="email"/>
+        <property name="regDate" column="reg_date"/>
+        <property name="role" column="role"/>
+        <property name="delStatus" column="del_status"/>
+    </class>
+    <class name="fan.geogames.entity.VisitedEvent" table="visited-event" schema="geogames">
+        <id name="visitedEventId" column="visited-event_Id"/>
+        <property name="eventId" column="event_Id"/>
+    </class>
+</hibernate-mapping>
